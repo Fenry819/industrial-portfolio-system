@@ -29,4 +29,76 @@
         </div>
     </div>
 </section>
+
+<section id="projects" class="projects-section container">
+    <div class="section-header">
+        <span class="section-num">// 01</span>
+        <h2 class="section-title">BUILT ARCHITECTURES</h2>
+    </div>
+
+    <div class="projects-matrix">
+        {% for project in projects %}
+            {% if project.is_featured %}
+                <div class="project-card featured-card animate-fade">
+                    <div class="card-edge-label">FEATURED_DEPLOYMENT //</div>
+                    <div class="featured-grid">
+                        <div class="featured-media">
+                            {% if project.image %}
+                                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-img">
+                            {% else %}
+                                <div class="terminal-placeholder">
+                                    <div class="placeholder-code">SYS.ERR: NO_IMAGE_STREAM // RENDER_FALLBACK_ACTIVE</div>
+                                    <div class="placeholder-title">{{ project.title }}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            <p class="project-desc">{{ project.full_description|linebreaksbr }}</p>
+                            
+                            <div class="tech-tag-container">
+                                {% for tag in project.get_tech_list %}
+                                    <span class="tech-tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+
+                            <div class="project-links">
+                                {% if project.github_link %}
+                                    <a href="{{ project.github_link }}" target="_blank" class="action-btn">SRC_CODE -></a>
+                                {% endif %}
+                                {% if project.live_link %}
+                                    <a href="{{ project.live_link }}" target="_blank" class="action-btn accent-btn">LIVE_DEMO -></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="project-card standard-card animate-fade">
+                    <div class="standard-inner">
+                        <div class="card-meta">
+                            <span class="card-id">SYS_REF_0{{ forloop.counter }}</span>
+                            <span class="card-status">DEPLOYED</span>
+                        </div>
+                        
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-desc">{{ project.short_description }}</p>
+                        
+                        <div class="tech-tag-container">
+                            {% for tag in project.get_tech_list %}
+                                <span class="tech-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <div class="project-links">
+                            {% if project.github_link %}
+                                <a href="{{ project.github_link }}" target="_blank" class="action-btn small-btn">SRC -></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
