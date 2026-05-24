@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gautham Murali | Autonomous Engineering & Architecture</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="logo">G.MURALI //</a>
+            <nav class="main-nav">
+                <a href="#projects" class="nav-link"><span class="nav-num">01.</span> PROJECTS</a>
+                <a href="#about" class="nav-link"><span class="nav-num">02.</span> METRICS</a>
+                <a href="#contact" class="nav-link"><span class="nav-num">03.</span> EXECUTE</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

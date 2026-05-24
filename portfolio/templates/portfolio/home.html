@@ -1,0 +1,32 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-section container">
+    <div class="hero-meta-grid">
+        <div class="meta-item spec-box">
+            <span class="meta-label">LOC_REF //</span>
+            <span class="meta-value">KERALA, IN</span>
+        </div>
+        <div class="meta-item spec-box">
+            <span class="meta-label">CORE_ENG //</span>
+            <span class="meta-value">PYTHON / ML / SYSTEM INTEGRATION</span>
+        </div>
+    </div>
+
+    <div class="hero-title-wrapper">
+        <h1 class="hero-title animate-reveal">GAUTHAM</h1>
+        <h1 class="hero-title outline-text animate-reveal delay-1">MURALI</h1>
+    </div>
+
+    <div class="hero-sub-grid">
+        <p class="hero-lead-text animate-fade">
+            MCA Graduate specializing in designing high-throughput, autonomous machine architectures. Engineering robust systems that interface edge processing models with advanced cloud-intelligence ecosystems.
+        </p>
+        <div class="status-indicator animate-fade">
+            <span class="pulse-dot"></span>
+            <span class="status-text">CORE.ENGINE_RUNNING // SYSTEM_AVAILABLE</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

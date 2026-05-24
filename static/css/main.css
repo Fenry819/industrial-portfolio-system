@@ -1,0 +1,270 @@
+/* Import Anti-Generic Typography */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    /* Color Palette: Obsidian Brutalist / Industrial Neural */
+    --bg-obsidian: #050505;
+    --bg-card: #0d0d0f;
+    --border-brutal: #1f1f23;
+    --text-primary: #f4f4f5;
+    --text-muted: #8e8e93;
+    --accent-electric: #00ff66; /* High-voltage neon green */
+    --accent-dim: rgba(0, 255, 102, 0.15);
+    
+    /* Typography System */
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Global Reset & Base Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-obsidian);
+    color: var(--text-primary);
+    font-family: var(--font-mono); /* Technical monospace base text */
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+/* Tactile Grain Overlay Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Industrial Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-obsidian);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-brutal);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-electric);
+}
+
+/* Selection Highlights */
+::selection {
+    background-color: var(--accent-electric);
+    color: var(--bg-obsidian);
+}
+
+/* Utility Layout Helper */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ==========================================================================
+   Phase 3 Layout: Header, Typography-Grid, & Animations
+   ========================================================================== */
+
+/* Header / Navigation */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    border-bottom: 1px solid var(--border-brutal);
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+.logo:hover {
+    color: var(--accent-electric);
+}
+
+.main-nav {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.nav-num {
+    color: var(--accent-electric);
+    margin-right: 0.25rem;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 8px var(--accent-dim);
+}
+
+/* Hero Section Structural Assembly */
+.hero-section {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-meta-grid {
+    display: flex;
+    gap: 4rem;
+    border-bottom: 1px solid var(--border-brutal);
+    padding-bottom: 1.5rem;
+}
+
+.spec-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-size: 0.7rem;
+    color: var(--accent-electric);
+    letter-spacing: 1px;
+}
+
+.meta-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Giant Anti-Slop Typography Layout */
+.hero-title-wrapper {
+    margin: 4rem 0;
+    line-height: 0.85;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 12vw, 11rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(244, 244, 245, 0.2);
+    transition: -webkit-text-stroke 0.4s ease;
+}
+
+.outline-text:hover {
+    -webkit-text-stroke: 1px var(--accent-electric);
+}
+
+.hero-sub-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 4rem;
+    border-top: 1px solid var(--border-brutal);
+    padding-top: 2rem;
+    flex-wrap: wrap; /* Allows components to cascade cleanly on medium displays */
+}
+
+.hero-lead-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 720px;
+    line-height: 1.7;
+    flex: 1;
+    min-width: 300px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #0d0d0f;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid var(--border-brutal);
+    white-space: nowrap; /* Prevents terminal status codes from awkwardly breaking lines */
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-electric);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-electric);
+    animation: beacon 1.8s infinite ease-in-out;
+}
+
+.status-text {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+/* High-Impact Performance Animations */
+@keyframes beacon {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 14px var(--accent-electric); }
+}
+
+.animate-reveal {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.delay-1 { animation-delay: 0.15s; }
+
+.animate-fade {
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.4s;
+}
+
+@keyframes revealUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+    .hero-sub-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .status-indicator { justify-self: start; }
+    .main-nav { display: none; } /* Keeps focus on structural display for mobile layout */
+}
