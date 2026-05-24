@@ -582,3 +582,144 @@ body::before {
     color: var(--text-primary);
     text-shadow: 0 0 8px var(--accent-dim);
 }
+
+
+/* ==========================================================================
+   Phase 6 Layout: Execution Terminal & Footer
+   ========================================================================== */
+
+   .execute-section {
+    padding: 8rem 2rem 2rem 2rem;
+    border-top: 1px solid var(--border-brutal);
+}
+
+.execute-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+.execute-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    max-width: 400px;
+}
+
+/* Terminal Block Design */
+.terminal-contact-block {
+    background: #09090b;
+    border: 1px solid var(--border-brutal);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.terminal-header {
+    background: #141417;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-brutal);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px; height: 10px; border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-left: 1rem;
+}
+
+.terminal-body {
+    padding: 2rem;
+    font-family: var(--font-mono);
+}
+
+.cmd-line {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.prompt-arrow {
+    color: var(--accent-electric);
+    font-weight: bold;
+}
+
+.cmd-text {
+    color: var(--text-primary);
+}
+
+.cmd-output {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.5rem;
+}
+
+.contact-protocol {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.2s ease;
+}
+
+.protocol-type {
+    color: #a78bfa; /* subtle purple core code */
+    min-width: 60px;
+}
+
+.contact-protocol:hover {
+    color: var(--text-primary);
+    transform: translateX(5px);
+}
+
+.highlight-protocol:hover .protocol-type {
+    color: var(--accent-electric);
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+.mt-2 { margin-top: 2rem; }
+
+/* Global Footer */
+.site-footer {
+    border-top: 1px solid var(--border-brutal);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.footer-sub {
+    color: var(--border-brutal);
+}
+
+@media (max-width: 900px) {
+    .execute-grid {
+        grid-template-columns: 1fr;
+    }
+    .site-footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
