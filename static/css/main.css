@@ -2,18 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 :root {
-    /* Color Palette: Obsidian Brutalist / Industrial Neural */
-    --bg-obsidian: #050505;
-    --bg-card: #0d0d0f;
-    --border-brutal: #1f1f23;
-    --text-primary: #f4f4f5;
-    --text-muted: #8e8e93;
-    --accent-electric: #00ff66; /* High-voltage neon green */
+    /* Industrial Theme Color Palette Override */
+    --bg-obsidian: #111215;      /* Raw iron-ore / matte slate background */
+    --bg-card: #16181d;          /* Machined steel panel card background */
+    --text-primary: #f4f4f5;     /* High-visibility architectural white */
+    --text-muted: #8a8f98;       /* Oxidized metal gray for sub-text */
+    --accent-electric: #00ff66;  /* Terminal green operations light */
     --accent-dim: rgba(0, 255, 102, 0.15);
-    
-    /* Typography System */
-    --font-display: 'Bricolage Grotesque', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --border-brutal: #242730;    /* Riveted steel seam borders */
+    --font-display: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, monospace;
 }
 
 /* Global Reset & Base Styling */
@@ -26,10 +24,18 @@
 body {
     background-color: var(--bg-obsidian);
     color: var(--text-primary);
-    font-family: var(--font-mono); /* Technical monospace base text */
+    font-family: var(--font-display);
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    position: relative;
-    line-height: 1.6;
+    line-height: 1.5;
+    
+    /* Industrial drafting-grid background texture */
+    background-image: 
+        linear-gradient(var(--border-brutal) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-brutal) 1px, transparent 1px);
+    background-size: 100px 100px; /* Clean, large blueprint quadrants */
+    background-position: center top;
 }
 
 /* Tactile Grain Overlay Effect */
