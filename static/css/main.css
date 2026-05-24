@@ -185,16 +185,33 @@ body::before {
     letter-spacing: -2px;
 }
 
+/* Base state now handles the permanent malfunction sequence */
+/* Base state: Define the structure clearly using longhand properties */
+/* Base state: Force hardware acceleration and block layout context */
+/* Base state: Handles the permanent voltage malfunction safely */
+
 .outline-text {
+    display: inline-block;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(244, 244, 245, 0.2);
-    transition: -webkit-text-stroke 0.4s ease;
+    -webkit-text-stroke: 1px rgba(244, 244, 245, 0.25);
+    animation: damaged-neon 2s infinite linear;
 }
 
-.outline-text:hover {
-    -webkit-text-stroke: 1px var(--accent-electric);
+/* Hardened Malfunctioning Sequence */
+@keyframes damaged-neon {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        -webkit-text-stroke-color: var(--accent-electric);
+        text-shadow: 
+            0 0 12px var(--accent-dim),
+            0 0 24px var(--accent-dim);
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        -webkit-text-stroke-color: rgba(244, 244, 245, 0.15);
+        text-shadow: none;
+        opacity: 0.35;
+    }
 }
-
 .hero-sub-grid {
     display: flex;
     justify-content: space-between;
