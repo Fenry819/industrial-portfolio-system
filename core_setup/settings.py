@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage', 
-    'cloudinary',         
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  
+    'cloudinary_storage',          
+    'cloudinary',                  
     'portfolio',
 ]
 
@@ -126,15 +126,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # 1. This tells Django what to use
 STORAGES = {
     "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage", # Media goes to Cloudinary
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage", 
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage", # <-- 'Manifest' removed here
+        "BACKEND": "whitenoise.storage.StaticFilesStorage", # <-- Simplest, safest backend
     },
 }
 
 # 2. This satisfies the old Cloudinary library so it doesn't crash your build
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' # <-- 'Manifest' removed here
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage' # <-- Simplest, safest backend
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
