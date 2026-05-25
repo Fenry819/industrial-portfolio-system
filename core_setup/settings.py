@@ -129,12 +129,12 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage", # Media goes to Cloudinary
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage", # CSS stays with WhiteNoise
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage", # <-- 'Manifest' removed here
     },
 }
 
 # 2. This satisfies the old Cloudinary library so it doesn't crash your build
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' # <-- 'Manifest' removed here
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
