@@ -129,20 +129,20 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage", 
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.StaticFilesStorage", # <-- Simplest, safest backend
+        "BACKEND": "whitenoise.storage.StaticFilesStorage", 
     },
 }
 
 # 2. This satisfies the old Cloudinary library so it doesn't crash your build
-STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage' # <-- Simplest, safest backend
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage' 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# --- Cloudinary Settings ---
+# --- Cloudinary Settings (SECURED VIA ENVIRONMENT VARIABLES) ---
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dmhazyyas',
-    'API_KEY': '215654611121339',
-    'API_SECRET': 'FBmpMkuf2nXb_BI2LUNWsx5SODk'
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
 }
