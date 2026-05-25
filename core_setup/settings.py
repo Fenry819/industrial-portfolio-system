@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage', 
+    'cloudinary',         
     'django.contrib.staticfiles',
     'portfolio',
 ]
@@ -117,27 +119,30 @@ USE_TZ = True
 import os  
 
 # --- Static and Media Settings ---
-
-# Where Django looks for static files during development
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# Where Django collects files for production (Render will use this)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration for production
+# 1. This tells Django what to use
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage", # Media goes to Cloudinary
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage", # CSS stays with WhiteNoise
     },
 }
 
-# Media files (User uploaded project screenshots)
+# 2. This satisfies the old Cloudinary library so it doesn't crash your build
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# --- Cloudinary Settings ---
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'Root',
+    'API_KEY': '215654611121339',
+    'API_SECRET': 'FBmpMkuf2nXb_BI2LUNWsx5SODk'
+}
