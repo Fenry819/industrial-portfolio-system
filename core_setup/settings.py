@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # --- Cloudinary Settings ---
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'Root',
+    'CLOUD_NAME': 'dmhazyyas',
     'API_KEY': '215654611121339',
     'API_SECRET': 'FBmpMkuf2nXb_BI2LUNWsx5SODk'
 }
